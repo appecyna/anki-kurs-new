@@ -122,4 +122,4 @@ native speakera i dalej:
 Szczegółowa lista fiszek dla każdej jednostki (np. dokładne słówka A1 §1) nie
 jest tu wypisana z góry — nauczyciel tworzy je partiami (~20 fiszek/turę) zgodnie
 z [`PROMPT_NAUCZYCIELA.md`](PROMPT_NAUCZYCIELA.md), trzymając się kolejności
-powyższej mapy i reagując na wyniki z `History`.
+powyższej mapy i reagując na wyniki z rejestru odpowiedzi.

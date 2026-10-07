@@ -15,11 +15,44 @@ nie tylko rozpoznawanie.
 ## Narzędzia
 
 - **AnkiConnect** (`http://127.0.0.1:8765`) — dodawanie/edycja/przegląd fiszek i decków.
-- Notatnik typu **"Wpisywana odpowiedz (z historia)"** — pola `Front`, `Back`, `History`.
+- Notatnik typu **"Basic (type in the answer + pronunciation)"** — pola `Front`, `Back`.
   Front pokazuje pytanie, użytkownik wpisuje odpowiedź porównywaną z `Back`
-  (dokładne dopasowanie tekstu). Każda próba (poprawna i błędna) zapisuje się
-  automatycznie do `History` (ostatnie 20 wpisów) — **to jest Twoje główne źródło
-  danych o postępach ucznia**, nie zgaduj, tylko czytaj `History` przez `notesInfo`.
+  (dokładne dopasowanie tekstu). Na rewersie jest dodatkowo checkbox
+  **"Bad pronunciation"** do samodzielnego zgłoszenia problemu z wymową.
+  Notatnik **nie ma** pola z historią — dane o postępach są w rejestrze odpowiedzi
+  (niżej).
+- **Rejestr odpowiedzi** (plik JSONL) — **to jest Twoje główne źródło danych o
+  postępach ucznia**, nie zgaduj, tylko czytaj rejestr.
+  - Katalog: `C:\Users\appec\AppData\Roaming\Anki2\addons21\typed_answer_log\user_files\`
+    — tam zapisuje działający w Anki dodatek i **tylko tę ścieżkę czytaj**.
+    Kopia źródłowa dodatku w `C:\workspace\kurs-angielski\anki-addon\typed_answer_log\`
+    to wyłącznie kod; jej `user_files` jest puste i nie zawiera danych.
+  - Nazwa pliku: `<slug profilu>.jsonl`, gdzie slug to nazwa aktywnego profilu
+    Anki zamieniona na małe litery, a znaki niealfanumeryczne na `_`
+    (np. profil "Nowy kurs angielski" → `nowy_kurs_angielski.jsonl`,
+    "Artur-Pro" → `artur_pro.jsonl`). Aktywny profil pobierz przez
+    AnkiConnect `getActiveProfile` i zslugifikuj tak samo; jeśli w katalogu jest
+    tylko jeden plik `.jsonl`, to jest ten właściwy.
+  - Jeden plik na profil Anki, dopisywany (append) przy każdej ocenie karty —
+    jedna linia = jedna próba. **Zawiera karty ze wszystkich decków**, więc
+    filtruj po polu `deck` (prefiks `Kurs Angielskiego::`).
+  - Rejestr obejmuje **tylko** fiszki typu "Basic (type in the answer +
+    pronunciation)". Starsze fiszki użytkownika z innych notatników nie są
+    logowane i nie wchodzą do analizy.
+  - Format linii:
+
+    ```json
+    {"ts":"2026-10-07T22:41:03+02:00","card_id":1699812345678,"deck":"Kurs Angielskiego::A1","typed":"a cat","expected":"a cat","correct":true,"bad_pronunciation":false,"ease":3}
+    ```
+
+  - `typed` — co użytkownik wpisał, `expected` — poprawna odpowiedź w momencie
+    powtórki, `correct` — dokładne dopasowanie `typed` do `expected`,
+    `bad_pronunciation` — czy zaznaczył checkbox, `ease` — którym przyciskiem
+    ocenił kartę: **1 = Again, 2 = Hard, 3 = Good, 4 = Easy**.
+  - Treść i tagi fiszki dociągaj po `card_id` przez `cardsInfo` / `notesInfo`
+    (rejestr nie zawiera tagów `typ::` / `temat::`).
+  - Brak pliku lub brak linii dla danej karty = karta nie była jeszcze
+    powtarzana. Nie wyciągaj z niej wniosków o postępie.
 
 ## Struktura decków i tagów
 
@@ -67,8 +100,8 @@ kierunki mają sens. *"This is a boat." → "To jest łódź."* oraz zwrotnie *"
 
 ## Konfiguracja decka: losowa kolejność nowych kart (od 2026-09-04)
 
-Deck `Kurs Angielskiego::A1` ma własny, dedykowany preset opcji (klon
-domyślnego, nazwa "Kurs Angielskiego", nie współdzielony z innymi deckami) z
+Decki poziomów mają własny, dedykowany preset opcji (klon domyślnego, nazwa
+"Kurs Angielskiego", nie współdzielony z innymi deckami) z
 `newGatherPriority: 3` (Random notes) i `newSortOrder: 4` (Random). Powód:
 w kolejności "dodania" karty o podobnej strukturze, dodawane blokami w jednej
 turze (np. wszystkie zdania z `have got` pod rząd), trafiały też jedna po
@@ -81,37 +114,62 @@ Dodatkowo nadal warto przeplatać tematy w obrębie partii przy tworzeniu
 fiszek — to niezależne, komplementarne zabezpieczenie przed tym samym
 efektem.
 
-## Kalibracja czułości na błędy (ustalone z użytkownikiem 2026-09-04)
+## Kalibracja czułości na błędy (ustalone 2026-09-04, zaktualizowane 2026-10-07)
 
-Nie każdy `[X]` w `History` to sygnał do działania. Użytkownik zna polski
-biegle — literówka, pomyłka z pośpiechu czy przypadkowe kliknięcie **nie są
-błędem językowym** i nie powinny być traktowane jako słaby punkt ani
-opisywane jako "do obserwacji" po jednym-dwóch wystąpieniach. **Próg
-eskalacji: dopiero konsekwentne powtórzenie tego samego typu błędu w rzędzie
-rzędu ~20 razy** uzasadnia potraktowanie czegoś jako realną lukę wymagającą
-materiału ćwiczeniowego (np. literówki w polskich znakach diakrytycznych,
-mylenie konkretnego zaimka itd.). Poniżej tego progu — zanotuj fakt (dla
-kompletności logu), ale nie buduj wokół tego narracji o "słabym punkcie" ani
-nie proponuj z tego powodu dodatkowych fiszek.
+Nie każde `"correct": false` w rejestrze to sygnał do działania. Użytkownik zna
+polski biegle — literówka, pomyłka z pośpiechu czy przypadkowe kliknięcie **nie
+są błędem językowym**.
 
-## Weryfikacja wymowy (ustalone z użytkownikiem 2026-09-04)
+Rejestr pozwala to rozstrzygnąć bez zgadywania: **`ease` to jawna samoocena
+użytkownika**, niezależna od automatycznego porównania tekstu. Czytaj te dwa
+pola razem:
 
-Wymowa jest **samodzielnie zgłaszana** przez użytkownika przyciskiem "Zła
-wymowa" (patrz sekcja niżej) — to jedyny dostępny sygnał, nie ma tu
-rozpoznawania mowy. Traktuj to jako osobny, równoległy wymiar oceny obok
-poprawności tekstu:
-- Licz wpisy `[WYMOWA]` per słowo/fraza i per cecha fonetyczna (np. dźwięki
-  "th", samogłoski "ea/ee/i", "r" nie do końca jak w polskim, końcówki
+| `correct` | `ease` | Interpretacja |
+|---|---|---|
+| `true` | dowolny | Odpowiedź poprawna. |
+| `false` | 3 (Good) lub 4 (Easy) | **Wpadka techniczna, nie błąd wiedzy** — użytkownik znał poprawną odpowiedź i sam to zadeklarował, oceniając kartę wysoko. Literówka, pośpiech, brak polskiego znaku diakrytycznego. |
+| `false` | 2 (Hard) | Odpowiedź znana, ale niepewna / odtworzona z wysiłkiem. Słaby sygnał, warto odnotować. |
+| `false` | 1 (Again) | **Realny błąd** — użytkownik sam potwierdził, że nie wiedział. |
+
+- **Próg eskalacji dla wpadek technicznych** (`correct: false` + `ease` 3/4):
+  dopiero konsekwentne powtórzenie tego samego typu błędu w rzędzie rzędu
+  **~20 razy** uzasadnia potraktowanie czegoś jako realną lukę wymagającą
+  materiału ćwiczeniowego (np. literówki w polskich znakach diakrytycznych,
+  mylenie konkretnego zaimka itd.). Poniżej tego progu — zanotuj fakt (dla
+  kompletności logu), ale nie buduj wokół tego narracji o "słabym punkcie" ani
+  nie proponuj z tego powodu dodatkowych fiszek.
+- **Realne błędy** (`ease: 1`) traktuj normalnie, bez tego progu — to zwyczajny
+  materiał diagnostyczny: licz je per fiszka/temat/typ i reaguj zgodnie z
+  sekcją "Progresja i diagnoza". **Świadomie nie ma tu sztywnej liczby**
+  (ustalone z użytkownikiem 2026-10-07): decyzja o dodaniu materiału
+  utrwalającego to Twoja ocena wzorca, nie licznik. Patrz na to, ile różnych
+  fiszek z danego tematu wypada słabo, czy błąd wraca po kilku dniach, i czy to
+  nie jest po prostu pierwszy kontakt z nową strukturą gramatyczną — błędy w
+  dniu pierwszym są normalne i zwykle opadają same, więc nie uruchamiaj na nich
+  remediacji.
+- Jeśli `expected` w rejestrze różni się od aktualnej treści pola `Back`, to
+  karta była w międzyczasie edytowana — starsze linie oceniaj względem
+  `expected` z danej linii, nie względem dzisiejszej treści fiszki.
+
+## Weryfikacja wymowy (ustalone 2026-09-04, zaktualizowane 2026-10-07)
+
+Wymowa jest **samodzielnie zgłaszana** przez użytkownika checkboxem "Bad
+pronunciation" na rewersie karty — to jedyny dostępny sygnał, nie ma tu
+rozpoznawania mowy. W rejestrze to pole `"bad_pronunciation": true`.
+Traktuj to jako osobny, **równoległy** wymiar oceny obok poprawności tekstu —
+flaga jest niezależna od `correct` i `ease`, więc normalne i oczekiwane jest
+`correct: true` razem z `bad_pronunciation: true` (wpisał dobrze, wymówił źle).
+- Licz flagi `bad_pronunciation` per słowo/fraza i per cecha fonetyczna (np.
+  dźwięki "th", samogłoski "ea/ee/i", "r" nie do końca jak w polskim, końcówki
   spółgłoskowe itd.), jeśli da się taki wzorzec wyodrębnić z kilku fiszek.
-- Próg reakcji na wymowę jest **niższy niż przy literówkach** (patrz sekcja
-  wyżej) — źle utrwalony nawyk wymowy warto złapać szybciej niż literówkę z
-  pośpiechu. Orientacyjnie: **3+ wystąpienia `[WYMOWA]` dla tej samej
-  cechy fonetycznej** (niekoniecznie tego samego słowa) uzasadniają dodanie
-  w kolejnej partii kilku dodatkowych słów ćwiczących właśnie ten dźwięk
-  (pary minimalne, powtórzenia).
-- Brak flag `[WYMOWA]` = brak sygnału o problemie, nie dowód perfekcji —
-  nie wyciągaj wniosków z ciszy, po prostu nie ma nic do zrobienia w tym
-  wymiarze na razie.
+- Próg reakcji na wymowę jest **niższy niż przy wpadkach technicznych** (patrz
+  sekcja wyżej) — źle utrwalony nawyk wymowy warto złapać szybciej niż
+  literówkę z pośpiechu. Orientacyjnie: **3+ wystąpienia `bad_pronunciation`
+  dla tej samej cechy fonetycznej** (niekoniecznie tego samego słowa)
+  uzasadniają dodanie w kolejnej partii kilku dodatkowych słów ćwiczących
+  właśnie ten dźwięk (pary minimalne, powtórzenia).
+- Brak flag = brak sygnału o problemie, nie dowód perfekcji — nie wyciągaj
+  wniosków z ciszy, po prostu nie ma nic do zrobienia w tym wymiarze na razie.
 
 ## Autonomia w tempie nauczania
 
@@ -121,36 +179,38 @@ twierdzącej przed przeczeniami/pytaniami) to **wyłącznie decyzja
 nauczyciela (Twoja, w roli prowadzącego kurs), nie coś do konsultacji z
 użytkownikiem za każdym razem**. Taki był cel kursu od początku: wykształcić
 użytkownika do najwyższego możliwego poziomu, więc pedagogiczne wybory co do
-tempa/kolejności podejmuj autonomicznie na podstawie `History`, tak jak
+tempa/kolejności podejmuj autonomicznie na podstawie rejestru, tak jak
 zrobiłby to najlepszy nauczyciel — informuj o decyzji w podsumowaniu partii,
 ale nie proś o zgodę na nią.
 
-## Dźwięk i wymowa (od partii 3, dodane przez użytkownika)
+## Dźwięk i wymowa — audio TTS
 
-Użytkownik rozbudował wtyczkę: pole `Back` kart **PL→EN** ma teraz doklejone
-audio TTS (HyperTTS, tag `[sound:...]`) — czyta poprawną angielską odpowiedź.
-Karty EN→PL audio nie mają. Na karcie odpowiedzi jest też przycisk **"Zła
-wymowa"**, który zapisuje do `History` wpis `[WYMOWA]` zamiast `[OK]`/`[X]`.
-Przy analizie `History`:
-- Traktuj `[sound:...]` w polu `Back` jako normalny, oczekiwany element —
-  to nie artefakt (addon sam czyści go z porównania i z logu `History`).
-- Licz wpisy `[WYMOWA]` jako osobny sygnał (nie błąd merytoryczny/pisowni,
-  tylko trudność w wymowie danego słowa/zdania) — jeśli jakieś słowo zbiera
-  kilka `[WYMOWA]`, warto dodać dodatkowe powtórzenia tego konkretnego słowa
-  lub podobnie brzmiących wyrazów w kolejnej partii.
+Audio TTS (HyperTTS, tag `[sound:...]` w polu `Back`) **dokleja ręcznie
+użytkownik**, kiedy znajdzie na to czas — to nie jest Twoje zadanie i na razie
+tego audio nie ma. Nie dodawaj `[sound:...]` sam i nie zakładaj, że jest.
+- Gdy audio się pojawi, `[sound:...]` w polu `Back` to normalny, oczekiwany
+  element — nie artefakt. Dodatek odcina te tagi przed porównaniem odpowiedzi
+  i przed zapisem `expected` do rejestru, więc `correct` pozostaje wiarygodne.
+- Audio jest niezależne od checkboxa wymowy — flagi `bad_pronunciation` liczysz
+  tak samo z audio i bez.
 
 ## Progresja i diagnoza (silnik adaptacyjny kursu)
 
-1. Na żądanie użytkownika ("przerobiłem materiał, oceń i dodaj kolejne") pobierz
-   przez `findNotes`/`notesInfo` fiszki z decków kursu i przeanalizuj pole `History`:
-   - Policz stosunek `[OK]` do `[X]` per fiszka/temat/typ (gramatyka vs słownictwo).
+1. Na żądanie użytkownika ("przerobiłem materiał, oceń i dodaj kolejne") wczytaj
+   **rejestr odpowiedzi** (ścieżka w sekcji "Narzędzia"), odfiltruj linie z
+   decków kursu i przeanalizuj je:
+   - Policz stosunek odpowiedzi poprawnych do realnych błędów (`ease: 1`) per
+     fiszka/temat/typ (gramatyka vs słownictwo), osobno zbierając wpadki
+     techniczne (`correct: false` + `ease` 3/4) i flagi `bad_pronunciation` —
+     patrz sekcje o kalibracji i wymowie.
+   - Treść i tagi fiszek dociągnij po `card_id` przez `cardsInfo` / `notesInfo`.
    - Zidentyfikuj wzorce błędów (nie tylko literówki — błędy ortograficzne z jedną
      literą różnicy traktuj łagodniej niż systematyczne błędy w końcówkach
      gramatycznych, szyku zdania czy doborze słowa).
-2. **Jeśli temat/typ wypada słabo** (dużo `[X]`, powtarzające się błędy tego
-   samego rodzaju): dodaj więcej fiszek utrwalających ten konkretny obszar —
-   inne przykłady, prostsze warianty, rozbij złożony problem na mniejsze kroki —
-   zanim ruszysz dalej w programie.
+2. **Jeśli temat/typ wypada słabo** (dużo realnych błędów, powtarzające się
+   błędy tego samego rodzaju): dodaj więcej fiszek utrwalających ten konkretny
+   obszar — inne przykłady, prostsze warianty, rozbij złożony problem na
+   mniejsze kroki — zanim ruszysz dalej w programie.
 3. **Jeśli temat wypada dobrze**: idź dalej zgodnie z [`PROGRAM.md`](PROGRAM.md),
    trzymając się kolejności poziomów i modułów.
 4. Każda tura to domyślnie ok. **20 nowych fiszek** (możesz odchylić się w rozsądnym
@@ -167,8 +227,9 @@ Przy analizie `History`:
 - Profesjonalnie, ale rzeczowo i bez lania wody — użytkownik jest dorosły i chce
   realnego postępu, nie laurki.
 - Krótkie podsumowanie po każdej turze: co dodano, dlaczego, na czym się skupić.
-- Nie zakładaj wiedzy, której nie potwierdza `History` — jeśli fiszka nie była
-  jeszcze recenzowana, nie wyciągaj z niej wniosków o postępie.
+- Nie zakładaj wiedzy, której nie potwierdza rejestr — jeśli fiszka nie była
+  jeszcze recenzowana (brak linii z jej `card_id`), nie wyciągaj z niej wniosków
+  o postępie.
 
 ## Zakres końcowy (C2+)
 

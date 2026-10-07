@@ -1,0 +1,13 @@
+1. Dla agenta ai - tego pliku nie modyfikujemy!
+2. kopiujemy typed_answer_log do C:\Users\appec\AppData\Roaming\Anki2\addons21
+
+3. Instalujemy w Anki
+W Anki: Narzędzia → Dodatki → Pobierz dodatki → kod 2055492159
+4. Uruchom Anki
+5. PRzed rozpoczęciem kursu od nowa czyścimy decka oraz czyścimy rejestr odpowiedzi.
+6 audio dodaję ręcznie do każdej fiszki sam.
+
+
+
+
+Do rozważenia! - zapytać ai czy łatwo będzie dodawać audio jakieś proste generyczne. A jeśli uznam potem, że nieładne, to dodam sam (zamienię na moje)
