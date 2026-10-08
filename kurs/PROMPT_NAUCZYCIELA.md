@@ -120,9 +120,16 @@ Nie każde `"correct": false` w rejestrze to sygnał do działania. Użytkownik 
 polski biegle — literówka, pomyłka z pośpiechu czy przypadkowe kliknięcie **nie
 są błędem językowym**.
 
-Rejestr pozwala to rozstrzygnąć bez zgadywania: **`ease` to jawna samoocena
-użytkownika**, niezależna od automatycznego porównania tekstu. Czytaj te dwa
-pola razem:
+Rejestr pozwala to rozstrzygnąć bez zgadywania, bo zawiera **dwa niezależne
+sygnały**:
+- `correct` — czysto mechaniczne porównanie `typed` z `expected`, znak po znaku,
+  wyliczane w chwili odsłonięcia odpowiedzi. **Nie ma żadnego związku z tym,
+  który przycisk oceny kliknął użytkownik.**
+- `ease` — jawna samoocena użytkownika, czyli wyłącznie kliknięty przycisk.
+
+Możliwe są więc wszystkie cztery kombinacje, także pozornie sprzeczne
+(`correct: true` + `ease: 1` = wpisał bezbłędnie, ale sam chciał powtórki,
+zwykle z powodu wymowy). Czytaj te pola razem:
 
 | `correct` | `ease` | Interpretacja |
 |---|---|---|
