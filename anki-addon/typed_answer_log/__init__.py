@@ -18,11 +18,17 @@ QFMT = """{{Front}}
 
 {{type:Back}}"""
 
+# {{type:Back}} only renders the typed/expected comparison - Anki strips
+# [sound:...] tags out of it, so audio stored in Back is never played.
+# {{Back}} below renders the field normally, which gives the replay button
+# and lets Anki autoplay it on the answer side.
 AFMT = """{{Front}}
 
 <hr id=answer>
 
 {{type:Back}}
+
+<div class="answer-audio">{{Back}}</div>
 
 <div class="pron-check">
   <label>
@@ -39,6 +45,10 @@ CSS = """.card {
     background-color: white;
 }
 
+.answer-audio {
+    margin-top: 0.8em;
+}
+
 .pron-check {
     margin-top: 1.5em;
     font-size: 16px;
@@ -53,17 +63,26 @@ _bad_pronunciation = False
 
 def ensure_notetype() -> None:
     mm = mw.col.models
-    if mm.by_name(NOTETYPE_NAME):
+    nt = mm.by_name(NOTETYPE_NAME)
+    if nt is None:
+        nt = mm.new(NOTETYPE_NAME)
+        mm.add_field(nt, mm.new_field("Front"))
+        mm.add_field(nt, mm.new_field("Back"))
+        tmpl = mm.new_template("Card 1")
+        tmpl["qfmt"] = QFMT
+        tmpl["afmt"] = AFMT
+        mm.add_template(nt, tmpl)
+        nt["css"] = CSS
+        mm.add_dict(nt)
         return
-    nt = mm.new(NOTETYPE_NAME)
-    mm.add_field(nt, mm.new_field("Front"))
-    mm.add_field(nt, mm.new_field("Back"))
-    tmpl = mm.new_template("Card 1")
+    # keep an already installed note type in sync with the add-on
+    tmpl = nt["tmpls"][0]
+    if tmpl["qfmt"] == QFMT and tmpl["afmt"] == AFMT and nt["css"] == CSS:
+        return
     tmpl["qfmt"] = QFMT
     tmpl["afmt"] = AFMT
-    mm.add_template(nt, tmpl)
     nt["css"] = CSS
-    mm.add_dict(nt)
+    mm.update_dict(nt)
 
 
 def _log_path() -> str:
