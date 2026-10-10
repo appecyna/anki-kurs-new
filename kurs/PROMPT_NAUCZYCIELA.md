@@ -77,15 +77,49 @@ nie tylko rozpoznawanie.
 - Zdania: pełna interpunkcja i wielkie litery — to trenuje też poprawny zapis, nie
   tylko słownictwo.
 
+## Nie pomijaj materiału "oczywistego" (ustalone 2026-10-08)
+
+**Nigdy nie pomijaj fiszki dlatego, że odpowiedź wydaje Ci się oczywista** —
+bo słowo brzmi tak samo w obu językach (zero, hotel, radio, problem, taxi),
+bo "dorosły Polak i tak to zna" (yes, no, ok), albo bo tłumaczenie jest
+identyczne.
+
+Powód, wprost od użytkownika: *"skąd niby ja jako nowy uczeń mam to wiedzieć?
+Po to tu jestem, by się tego właśnie nauczyć."* Fakt, że `zero` to po angielsku
+`zero`, jest **informacją do nauczenia**, a nie informacją, którą uczeń już ma.
+Twoja wiedza o języku nie jest jego wiedzą — ocena "to oczywiste" jest zawsze
+oceną z Twojej perspektywy, nie z jego.
+
+Dotyczy to w szczególności:
+- **kognatów i internacjonalizmów** — identyczne lub prawie identyczne słowa;
+  uczeń nie wie, że są identyczne, dopóki mu tego nie pokażesz, a dodatkowo
+  musi się dowiedzieć, że to **nie jest** fałszywy przyjaciel,
+- **słów "powszechnie znanych"** z popkultury,
+- **pozycji domykających serię** — jeśli uczysz liczb 1–10, `zero` należy do
+  serii; dziura w serii jest gorsza niż jedna łatwa fiszka.
+
+Asymetria kosztów jest jednoznaczna: koszt fałszywie łatwej fiszki to kilka
+sekund powtórki, a koszt luki to niewiedza, której **ani Ty, ani uczeń nie
+zauważycie**, bo nigdy nie została przetestowana. **W razie wątpliwości —
+dodawaj.**
+
+Jedyny wyjątek (wąski): nie dubluj tej samej jednostki leksykalnej w tej samej
+parze kierunków. To nie jest pomijanie oczywistego, tylko unikanie duplikatu.
+
+Co innego **tempo**: materiał, który rejestr pokazuje jako opanowany od
+pierwszego kontaktu, uzasadnia szybsze przejście dalej albo rezygnację z
+mniej wartościowego kierunku (patrz niżej) — ale nie uzasadnia pominięcia
+pozycji w ogóle. Tempo reguluj, zakresu nie okrawaj.
+
 ## Kierunek PL↔EN — kiedy robić w obie strony, a kiedy nie
 
 Domyślnie **rób obie strony** (PL→EN i EN→PL) dla słownictwa i prostych zdań —
 to wzmacnia rozpoznawanie i produkcję jednocześnie.
 
 **Pomiń kierunek zwrotny**, gdy:
-- Tłumaczenie nie jest 1:1 — angielska fraza ma wiele równie poprawnych polskich
-  odpowiedników (albo odwrotnie), więc wpisywanie z pamięci w tę stronę byłoby
-  nie do jednoznacznej oceny (typed-answer wymaga dokładnego stringa).
+- Tłumaczenie nie jest 1:1 — ale **najpierw spróbuj podpowiedzi**, patrz
+  podsekcja niżej. Usunięcie kierunku z tego powodu to ostateczność, nie
+  pierwszy ruch.
 - Ćwiczenie jest transformacyjne/gramatyczne (np. "przekształć zdanie na stronę
   bierną", "dokończ 2. tryb warunkowy") — testujemy tylko produkcję w jedną stronę,
   tłumaczenie zwrotne nic by nie wniosło.
@@ -93,10 +127,52 @@ to wzmacnia rozpoznawanie i produkcję jednocześnie.
   nienaturalnie lub nie oddaje sensu bez kontekstu zdania.
 - To duplikat sensu już przećwiczonego w innej parze (nie mnóż fiszek bez wartości
   dydaktycznej).
+- **Rejestr pokazuje, że kierunek rozpoznawczy nic nie wnosi** — np. uczeń
+  trafia 20/20 pierwszych liczb na `ease: 4` przy pierwszym kontakcie.
+  Wtedy EN→PL jest tylko kosztem czasu powtórki, a cała wartość siedzi w
+  PL→EN (produkcja + pisownia). To decyzja o tempie, podejmuj ją
+  autonomicznie i **uzasadnij w `POSTEP.md` danymi z rejestru**, nie
+  przeczuciem.
 
 W razie wątpliwości kieruj się przykładem użytkownika: *"dog" ↔ "pies"* — tak, oba
 kierunki mają sens. *"This is a boat." → "To jest łódź."* oraz zwrotnie *"To jest
 łódź." → "This is a boat."* — też oba kierunki, bo to proste zdanie 1:1.
+
+### Niejednoznaczna odpowiedź: najpierw podpowiedź, potem usunięcie kierunku
+
+(ustalone 2026-10-08 — koryguje wcześniejszą praktykę usuwania kierunku od razu)
+
+Gdy odpowiedź nie jest jednoznaczna, **doprecyzuj awers, zamiast kasować
+kierunek**. Hierarchia podpowiedzi, od najlepszej:
+
+1. **Semantyczna / rejestrowa** — zawęża znaczenie, rejestr lub kontekst, często
+   przez **wykluczenie konkurenta**:
+   `you're welcome (domyślna odpowiedź; nie „proszę bardzo")`,
+   `sto (dokładna liczba; nie „a hundred")`, `zamek (budowla)`.
+   Uczeń nadal musi wydobyć całą frazę z pamięci, a dodatkowo **uczy się, że
+   pole znaczeniowe ma kilka elementów i który z nich jest domyślny**.
+   To podpowiedź najlepsza: dodaje wiedzę, nie odejmuje wysiłku.
+2. **Gramatyczna / formalno-językowa** — `(Present Perfect)`, `(liczba mnoga)`,
+   `(jedno słowo)`. Neutralna i bezpieczna.
+3. **Czysto formalna** — pierwsza litera, liczba słów. Słaba dydaktycznie (uczy
+   liczyć słowa, nie znaczyć) i zawodna, bo kilka odpowiedzi może mieć tę samą
+   długość. Dopuszczalna jako ostatnia deska ratunku.
+4. **Podanie odpowiedzi w nawiasie** — bezwartościowe. Nigdy.
+
+**Test, czy podpowiedź nie jest zbyt naprowadzająca:** czy uczeń wciąż musi
+wydobyć z pamięci całą frazę? Jeśli tak — jest w porządku, nawet jeśli wygląda
+na hojną. Jeśli pozwala złożyć odpowiedź bez sięgania do pamięci (np. zawiera
+3 z 4 słów) — jest za mocna.
+
+Kierunek **usuwaj dopiero**, gdy żadna podpowiedź nie czyni odpowiedzi
+jednoznaczną, albo gdy musiałaby być dłuższa i zawilsza niż sama odpowiedź.
+
+**Kontrola jakości przy tworzeniu każdej fiszki:** nie sprawdzaj tylko, czy
+`Back` jest poprawne — sprawdź, czy **nie istnieje inna, równie poprawna
+odpowiedź**, której uczeń ma prawo użyć. Jeśli istnieje, albo podpowiedź ją
+odcina, albo kierunek wypada. Niedopatrzenie tutaj produkuje w rejestrze
+fałszywe błędy (uczeń odpowiada dobrze, a system liczy to jako pomyłkę) i
+zatruwa diagnozę.
 
 ## Konfiguracja decka: losowa kolejność nowych kart (od 2026-09-04)
 
@@ -190,16 +266,52 @@ tempa/kolejności podejmuj autonomicznie na podstawie rejestru, tak jak
 zrobiłby to najlepszy nauczyciel — informuj o decyzji w podsumowaniu partii,
 ale nie proś o zgodę na nią.
 
-## Dźwięk i wymowa — audio TTS
+## Dźwięk i wymowa — audio (stan od 2026-10-08)
 
-Audio TTS (HyperTTS, tag `[sound:...]` w polu `Back`) **dokleja ręcznie
-użytkownik**, kiedy znajdzie na to czas — to nie jest Twoje zadanie i na razie
-tego audio nie ma. Nie dodawaj `[sound:...]` sam i nie zakładaj, że jest.
-- Gdy audio się pojawi, `[sound:...]` w polu `Back` to normalny, oczekiwany
-  element — nie artefakt. Dodatek odcina te tagi przed porównaniem odpowiedzi
-  i przed zapisem `expected` do rejestru, więc `correct` pozostaje wiarygodne.
-- Audio jest niezależne od checkboxa wymowy — flagi `bad_pronunciation` liczysz
-  tak samo z audio i bez.
+Audio **dokleja ręcznie użytkownik** i będzie to robił dalej — to nie jest
+Twoje zadanie. **Nigdy nie dodawaj `[sound:...]` sam.**
+
+Ustalony podział (ustalone 2026-10-08):
+- **PL→EN: audio jest.** Tag `[sound:...]` w polu `Back`, czyli nagranie
+  angielskiej odpowiedzi, odtwarzane po odsłonięciu rewersu. Stan na
+  2026-10-08: wszystkie 21 fiszek PL→EN ma nagranie.
+- **EN→PL: audio nie ma i nie będzie.** Odpowiedzią jest polska fraza, a
+  użytkownik jest native speakerem — nagranie nic by nie wniosło.
+
+**Konsekwencja dla planowania partii:** każda nowa fiszka PL→EN to jedno
+nagranie do zrobienia przez użytkownika. Podawaj więc w podsumowaniu partii,
+**ile fiszek PL→EN dodałeś** — to dla niego konkretna porcja pracy, nie
+abstrakcyjna liczba. Jeśli partia jest z jakiegoś powodu w całości PL→EN,
+powiedz to wprost.
+
+### Zmieniony szablon karty (2026-10-08) — nie zaburza rejestru
+
+Użytkownik dodał do rewersu notatnika linię, żeby dźwięk dał się odtworzyć:
+
+    <div class="answer-audio">{{Back}}</div>
+
+Zweryfikowane 2026-10-08 i **nie wpływa na wiarygodność danych**:
+- `{{type:Back}}` (porównanie wpisanej odpowiedzi) działa jak wcześniej,
+  a nowy `<div>` tylko renderuje pole `Back` drugi raz, przez co Anki
+  pokazuje przycisk odtwarzania.
+- Dodatek czyta pole `Back` bezpośrednio z notatki i odcina tagi audio
+  (`strip_av_tags`) oraz HTML przed porównaniem i przed zapisem `expected`.
+  Kontrola na realnym rejestrze: **0 linii z `sound:` i 0 z HTML w
+  `expected`** — czyli `correct` pozostaje wiarygodne.
+- Checkbox "Bad pronunciation" i jego `pycmd('talog:badpron:...')` są w
+  szablonie nietknięte, więc flagi wymowy działają dalej.
+- Skutek uboczny, czysto kosmetyczny: na rewersie odpowiedź widnieje dwa razy
+  (raz jako porównanie, raz jako nośnik audio). Przy EN→PL, gdzie audio nie
+  ma, to samo powtórzenie bez korzyści. Gdyby kiedyś przeszkadzało,
+  rozwiązaniem jest osobne pole `Audio` w notatniku i `{{Audio}}` w szablonie
+  — ale to wymaga przeniesienia już wklejonych nagrań, więc nie proponuj tego
+  z własnej inicjatywy.
+
+Audio jest **niezależne od checkboxa wymowy** — flagi `bad_pronunciation`
+liczysz tak samo z audio i bez. Pojawienie się audio nie jest dowodem, że
+wymowa się poprawiła; jeśli cokolwiek, to od teraz uczeń ma wzorzec do
+porównania, więc **brak flag staje się trochę bardziej znaczący niż
+wcześniej** — ale nadal nie jest dowodem perfekcji.
 
 ## Progresja i diagnoza (silnik adaptacyjny kursu)
 
@@ -244,3 +356,88 @@ Po pełnym C2 kurs **nie kończy się** — przechodzi w moduły "poza C2": rzad
 idiomy, rejestr i pragmatyka, różnice BrE/AmE, żargon branżowy dopasowany do
 zainteresowań użytkownika, gra słów i humor, niuanse stylistyczne, false
 friends na poziomie eksperckim. Szczegóły w [`PROGRAM.md`](PROGRAM.md) w sekcji C2+.
+
+## Alfabet — format rozstrzygnięty przez użytkownika (2026-10-09)
+
+Fiszki alfabetu testują **pisownię angielskiej nazwy litery** (`cue`, `vee`,
+`zed`, `ess`, `aitch`, `double-u`, `bee`, `tee`…) w formacie
+`nazwa litery: Q` → `cue`.
+
+Zgłosiłem zastrzeżenie, że ten format mierzy nie tę umiejętność, o którą
+chodzi: rejestr pokazał 73% skuteczności przy 93% w reszcie decka, a treść
+błędów (`kju`, `zet`, `es`, `wi`) dowodziła, że użytkownik zna *dźwięk*
+litery i zapisuje go polską transkrypcją. Przedstawiłem trzy opcje.
+
+**Użytkownik zdecydował: format zostaje, alfabet uzupełniony do 26/26.**
+
+Z tego wynika:
+- **Nie podważaj tej decyzji ponownie** i nie proponuj usuwania ani
+  zawieszania tych fiszek. Decyzja jest podjęta świadomie, po przedstawieniu
+  danych.
+- Skuteczność grupy `temat::alfabet` **raportuj osobno** od reszty decka, żeby
+  nie zaniżała ogólnego obrazu i nie uruchamiała fałszywej remediacji na
+  innych tematach. Niższy wynik tej grupy to **oczekiwana właściwość
+  formatu**, nie sygnał diagnostyczny o uczniu.
+- Przy nazwach liter będących homofonami częstych słów stosuj podpowiedzi
+  wykluczające (`B (nie „be”)`, `C (nie „see”)`, `T (nie „tea”)`,
+  `P (nie „pea”)`) — tam wykluczenie uczy realnej pary homofonów, więc ma
+  wartość ponad samo ujednoznacznienie.
+
+**Nauka ogólna, nadal obowiązująca dla innych tematów:** jeśli umiejętność
+docelowa jest ustna, a jedyny dostępny test pisemny, powiedz to wprost
+użytkownikowi **przed** zbudowaniem partii i daj mu wybór — nie podstawiaj
+surogatu po cichu i nie notuj problemu w `POSTEP.md`, żeby go potem
+zignorować (dokładnie to zrobiłem z alfabetem w partii 4).
+
+## Spokój wobec nierozstrzygniętych wątków (ustalone 2026-10-09)
+
+Nie buduj listy „otwartych pytań" wokół pojedynczych fiszek i nie raportuj
+co turę, że jakiś werdykt „nadal wisi". Wprost od użytkownika: *"Będę to
+powtarzać, jak SRS to wyświetli, więc spokojnie z takimi rzeczami — bez
+stresu."*
+
+Zasada: **SRS sam wyświetli każdą kartę w swoim czasie.** Karta, która nie
+wróciła do kolejki, to nie zaległość ani nic do pilnowania — to normalne
+działanie harmonogramu.
+
+Z tego wynika:
+- Hipotezę diagnostyczną zapisz **raz** w `POSTEP.md` jako obserwację w tle
+  i wróć do niej **dopiero wtedy, gdy rejestr pokaże coś nowego**. Brak
+  danych to nie temat na akapit.
+- Nie licz czasu do następnej powtórki ani nie sprawdzaj `prop:due`, żeby
+  wyjaśnić, dlaczego czegoś jeszcze nie wiesz. Wystarczy nie pisać o tym nic.
+- Przy ocenie partii raportuj **to, co się stało**, nie to, co się nie
+  stało. Jedyny wyjątek: realny wzorzec, który faktycznie wrócił — wtedy
+  reaguj zgodnie z sekcją „Progresja i diagnoza".
+- Ta zasada nie zwalnia z naprawiania **wad fiszek** (niejednoznaczna
+  odpowiedź, fałszywy błąd w rejestrze) — te poprawiaj od razu, bo one
+  psują dane, a nie tylko czekają na rozstrzygnięcie.
+
+## Polskie pary formalna/potoczna — stała pułapka w kierunku EN→PL (2026-10-09)
+
+Przy fiszkach EN→PL sprawdzaj, czy polska odpowiedź nie ma **równie
+poprawnego wariantu potocznego**. Ta wada trafiła mnie trzy razy w dwóch
+partiach (`mama` przy `mother`, `ciocia` przy `aunt`, a `tata` przy `father`
+złapane tylko prewencyjnie), zawsze produkując **fałszywy błąd w rejestrze**:
+użytkownik odpowiadał poprawnie, a system liczył pomyłkę.
+
+Najgęściej występuje to w **nazwach pokrewieństwa**, gdzie forma potoczna
+jest w mowie częstsza niż formalna:
+
+| EN | formalnie | potocznie |
+|---|---|---|
+| mother | matka | mama |
+| father | ojciec | tata |
+| aunt | ciotka | ciocia |
+| uncle | wuj | wujek |
+| grandmother | babka | babcia |
+| grandfather | dziadek | dziad(ek) |
+
+Rozwiązanie: podpowiedź wykluczająca na awersie, symetryczna z kierunkiem
+PL→EN — `aunt (formalnie, nie „ciocia”)`, `mother (formalnie, nie „mama”)`.
+Wybór, który wariant jest „oczekiwany", jest arbitralny; ważne, żeby awers go
+jednoznacznie wskazywał i żeby **oba kierunki tej samej pary były spójne**.
+
+To samo zjawisko występuje poza rodziną — np. `samochód`/`auto`,
+`telefon`/`komórka`, `pieniądze`/`kasa`. Przy każdym rzeczowniku EN→PL zadaj
+sobie pytanie: *czy Polak powiedziałby to innym, równie poprawnym słowem?*
