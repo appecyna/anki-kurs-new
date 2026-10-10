@@ -9,22 +9,19 @@ postępu do uwzględnienia.
 ## Aktualna pozycja w programie
 
 - **Poziom:** A1
-- **Moduł:** §1–§4 domknięte, §5 rozpoczęty (Present Simple)
+- **Moduł:** §1–§5 domknięte (Present Simple pełny)
 - **Zrobione:** p. 1 powitania+uprzejmości, p. 2–4 liczby 0–100 + alfabet
   26/26, p. 5–6 `to be` (pełny) + zaimki + a/an/the, p. 7–8 rodzina +
   wygląd + `my`/`your`, p. 9–10 `have got` (pełny) + dom + przymiotniki,
-  p. 11 Present Simple (twierdzenia) + czasowniki codzienne
-- **Stan decka:** 346 kart (253 PL→EN, 93 EN→PL)
-- **Następny krok:** Present Simple — `do`/`does` w przeczeniach i pytaniach
-  + krótkie odpowiedzi, jeśli `-s`/`-es`/`-ies` utrzymają się w rejestrze.
-  Potem §6 (czas, dni, miesiące) jako materiał na częstotliwość.
-- **Ostatnia ocena rejestru:** 2026-10-10, 491 powtórek.
-  Per grupa: **§4a 100%, §3 97%, §2 97%, liczby 95%, §4b 92%,
-  powitania 88%, alfabet 79%** (alfabet: 75% → **90%** dzień do dnia).
-- **Obserwacje w tle** (bez raportowania „nadal czekam"): reguła „u" w
-  `four`/`forty`/`fourteen`; podpowiedzi `ay`/`eye`; opuszczanie `got`
-  w krótkich odpowiedziach (`Yes, they have.`). (`has` w trzeciej osobie
-  potwierdzone 2026-10-09 — zamknięte.)
+  p. 11–12 Present Simple (pełny) + 22 czasowniki codzienne
+- **Stan decka:** 396 kart (293 PL→EN, 103 EN→PL)
+- **Następny krok:** A1 §6 — czas, dni tygodnia, miesiące + przysłówki
+  częstotliwości i przyimki czasu (`on Monday`, `in July`, `at seven`).
+- **Ostatnia ocena rejestru:** 2026-10-10, 550 powtórek.
+  Per grupa: **§5 98%, §3 97%, §2 97%, §4 95%, liczby 95%,
+  powitania 88%, alfabet 79%** (alfabet dzień do dnia: 75% → 90%).
+- **Obserwacje w tle:** reguła „u" w `four`/`forty`/`fourteen`; podpowiedzi
+  `ay`/`eye`; czy po `does` czasownik nie dostaje `-s` (*doesn't works*).
 
 ## Jak czytać rejestr (ważne operacyjnie)
 
@@ -1151,3 +1148,106 @@ rejestr pokaże, że `-s`, `-es` i `-ies` w trzeciej osobie trzymają. Jeśli
 `watches`/`studies` będą się mylić, najpierw więcej zdań z tymi końcówkami.
 Potem §6 (czas, dni tygodnia, miesiące), który da Present Simple naturalny
 materiał na określenia częstotliwości.
+
+---
+
+## Partia 12 — 2026-10-10 (§5 pełny: `do`/`does` w przeczeniach i pytaniach)
+
+### Ocena rejestru (550 powtórek, 59 nowych)
+
+| Grupa | Powtórki | Błędy | Wpadki tech. | Skuteczność |
+|---|---|---|---|---|
+| **§5 (Present Simple)** | 59 | 1 | 0 | **98%** |
+| §3 (rodzina, wygląd) | 66 | 2 | 2 | **97%** |
+| §2 (`to be`, zaimki, rodzajniki) | 72 | 2 | 1 | **97%** |
+| §4 (`have got`, dom) | 93 | 5 | 2 | **95%** |
+| Liczby | 112 | 6 | 3 | **95%** |
+| Powitania / uprzejmości | 43 | 5 | 1 | 88% |
+| Alfabet | 105 | 22 | 0 | 79% |
+
+Partia 11 przerobiona w całości (50/50).
+
+### Końcówka trzeciej osoby trzyma — warunek spełniony, rozszerzam
+
+To był warunek z poprzedniej tury. **Wszystkie formy trzeciej osoby poprawne**,
+włącznie z dwoma przypadkami nieregularnej pisowni:
+
+| Forma | Reguła | Wynik |
+|---|---|---|
+| `lives`, `reads`, `writes`, `likes`, `wants`, `eats`, `drinks` | zwykłe `-s` | ✓ wszystkie |
+| **`watches`** | `-es` po `ch` | ✓ dwa razy |
+| **`studies`** | `-ies` po spółgłoska + `y` | ✓ |
+
+Procedura „najpierw same twierdzenia z naciskiem na trzecią osobę" sprawdziła
+się drugi raz z rzędu (wcześniej przy `has got`). **Wchodzą `do`/`does`.**
+
+### Jedyny błąd partii 11 — znowu wada fiszki
+
+`He learns english.` zamiast `He studies English.`
+
+Dwie rzeczy w jednym:
+1. **`learns` jest poprawne** — „On uczy się angielskiego" to równie dobrze
+   `He learns English.` Podpowiedź `(nie „learn”)` miałem na fiszce z samym
+   czasownikiem, ale **zapomniałem jej na fiszce ze zdaniem**. Naprawione.
+2. `english` małą literą — to **realna lekcja**, nie wada: angielski pisze
+   nazwy języków i narodowości wielką literą, polski małą. Fiszka uczy tego
+   poprawnie, zostaje bez zmian.
+
+### Zamknięta obserwacja: opuszczanie `got` w krótkich odpowiedziach
+
+`Yes, they have got.` → błąd dwa razy (09.10 23:35 i 23:37), a przy trzeciej
+próbie 23:38 odpowiedź poprawna na `ease: 4`. Rozwiązało się samo w tej samej
+sesji. Zdejmuję z obserwacji w tle.
+
+### Zawartość partii 12 — 50 fiszek (40 PL→EN, 10 EN→PL)
+
+- **Przeczenia z `do`/`does` (7 + 3 w zdaniach, PL→EN):** I do not work. /
+  He does not work. / She does not live in Warsaw. / We do not like coffee. /
+  They do not read books. / My brother does not cook. / She does not watch TV. /
+  My father does not sleep. / He does not help. / I do not buy a new car.
+  **`does not` występuje sześć razy** — bo to tutaj siedzi sedno: po `does`
+  czasownik **traci** końcówkę `-s`, której właśnie się nauczył. To najczęstszy
+  błąd Polaków na tym etapie (*he doesn't works*).
+- **Pytania z `do`/`does` (7 + 2, PL→EN):** Do you work? / Does he work? /
+  Does she live in London? / Do you like coffee? / Do they read books? /
+  Does your brother cook? / Does she watch TV? / Does she speak English? /
+  Do they play football?
+- **Krótkie odpowiedzi (6, PL→EN):** Yes, I do. / No, I do not. /
+  Yes, he does. / No, he does not. / Yes, they do. / No, they do not.
+  Awers podaje angielskie pytanie, np. `Tak. (krótka odpowiedź na „Does he
+  work?”)` — inaczej „Tak, pracuję." byłoby równie dobrze `Yes, I work.`
+  Przy okazji samo pytanie w podpowiedzi daje dodatkową ekspozycję na wzorzec.
+- **Czasowniki, 10 w obu kierunkach (20):** sleep, run, speak, listen, play,
+  buy, sell, help, ask, answer.
+  `słuchać (nie „hear”)` → `listen`, `mówić (językiem)` → `speak`.
+- **Zdania twierdzące z nowymi czasownikami (5, PL→EN):** He plays football. /
+  She buys books. / My brother runs. / They listen to music. /
+  She answers questions.
+
+Punkty zaprojektowane świadomie:
+- **`She buys books.` vs `He studies English.`** — kontrast reguły `y`:
+  po samogłosce samo `-s` (`buys`), po spółgłosce `-ies` (`studies`).
+- **`They listen to music.`** — `listen` wymaga `to`, czego polski „słuchać"
+  nie sygnalizuje (słuchać **czegoś**, bez przyimka).
+- `(brytyjskie)` przy `piłka nożna` → `football`, bo amerykańskie `soccer`
+  byłoby równie poprawne.
+
+### Stan decka po partii 12
+
+| | Liczba |
+|---|---|
+| Razem | **396 kart** |
+| PL→EN / EN→PL | 293 / 103 |
+| `temat::present-simple` | 50 |
+| `temat::czasowniki` | 44 |
+| `temat::przeczenia` / `pytania` / `krotkie-odpowiedzi` | 23 / 22 / 20 |
+| **PL→EN bez audio (do nagrania)** | **40** |
+
+### Następny krok
+
+§5 domknięte. Dalej **A1 §6: czas, dni tygodnia, miesiące, pory roku** —
+poza słownictwem da Present Simple naturalny materiał na **przysłówki
+częstotliwości** (always, usually, often, sometimes, never) i wyrażenia
+`on Monday`, `in July`, `at seven o'clock`, czyli pierwsze systematyczne
+przyimki czasu. Do obserwacji przy następnej ocenie: czy po `does`
+czasownik nie dostaje `-s` (*doesn't works*).
